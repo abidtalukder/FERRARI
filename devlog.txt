@@ -1,0 +1,2 @@
+abidT, craigC, ravenT -- 2022-10-30 21:06
+Initialized files in repo, created and uploaded team flag, created and uploaded design doc for option two, edited wiki design doc for python/specificity/acronym clarification 
