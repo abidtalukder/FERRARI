@@ -1,7 +1,7 @@
 # weB LOG by FERRARI
 ## Abid Talukder (Project Manager), Craig Chen (Developer), Raven (Ruiwen) Tang (Developer)
 
-## Description of website/app (a la abstract of a scientific paper… NOT your entire design doc!)
+## Description of website/app
 * Coming soon...
 
 ## Launch codes:
