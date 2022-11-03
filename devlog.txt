@@ -5,4 +5,4 @@ abidT, craigC, ravenT -- 2022-11-01 9:26
 Updated design doc with target ship date
 
 abidT, craigC, ravenT -- 2022-11-02 23:51
-Revised design doc, with clarifications about blog vs. entry, account registration and handling differentiation, and password inclusion in user information, adding tasks like project management & devlog to our breakdown
+Revised design doc, with clarifications about blog vs. entry, account registration and handling differentiation, and password inclusion in user information, adding tasks like project management & devlog to our breakdown, updated readme heading
