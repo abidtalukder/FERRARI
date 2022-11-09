@@ -62,3 +62,18 @@ ravenT -- 2022-11-02 23:51
 --------------------------------------------------------------
 Revised design doc, with clarifications about blog vs. entry, account registration and handling differentiation, and password inclusion in user information, adding tasks like project management & devlog to our breakdown, updated readme heading
 ==============================================================
+
+abidT -- 2022-11-08 21:37
+--------------------------------------------------------------
+Set up login/account functionality, using K19
+==============================================================
+
+craigC -- 2022-11-08 21:37
+--------------------------------------------------------------
+Compiled sample blog entries, sample categories
+==============================================================
+
+ravenT -- 2022-11-08 21:37
+--------------------------------------------------------------
+Updated wiki design doc versions, drafted up database columns and methods for searching/filtering through database
+==============================================================
