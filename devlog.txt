@@ -6,3 +6,6 @@ Updated design doc with target ship date
 
 abidT, craigC, ravenT -- 2022-11-02 23:51
 Revised design doc, with clarifications about blog vs. entry, account registration and handling differentiation, and password inclusion in user information, adding tasks like project management & devlog to our breakdown, updated readme heading
+
+abidT-- 2022-11-02 22:38
+Worked on authentication methods. There are still many bugs to fix. The foundation has been set.
