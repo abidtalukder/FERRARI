@@ -19,11 +19,12 @@ db = file.cursor()
 
 def add_user(username, email, password, phone):
     key = str(os.urandom(16))
-    insert = f'insert into users values({username}, {email}, {password}, {phone}, {key});'
+    insert = f"insert into users values('{username}','{email}', '{password}', '{phone}', '{key}');"
+    db.execute(insert)
 
 @app.route("/") # At the root, we just return the homepage
 def index():
-    return render_template("login.html")
+    return render_template("signup.html")
     
 @app.route("/signup",methods=['GET', 'POST'])
 def signup():
@@ -32,21 +33,24 @@ def signup():
         # db.execute(create_table)
         add_user(request.form.get("username"),request.form.get("email"), request.form.get("password"),request.form.get("phone"))
     file.commit()
+    db.execute("SELECT * FROM users;")
+    print(db.fetchall())
     
     return render_template("home.html")
 
 @app.route("/auth",methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':   
-        filter_cmd = f'select * from users where username="{request.form.get("username")}" and password="{request.form.get("password")}";'
+        filter_cmd = f'SELECT * from users'
+        # where username="{request.form.get("username")}" and password="{request.form.get("password")}"
         try:
-            user = db.execute(filter_cmd)
-            user = list(user)
-            print(user)
-            session["username"]= user[0]
-            session["email"]=user[1]
-            session["phone"]=user[3]
-            session["userid"] = user[4]
+            db.execute(filter_cmd)
+            user = db.fetchall()
+            print()
+            # session["username"]= user[0]
+            # session["email"]=user[1]
+            # session["phone"]=user[3]
+            # session["userid"] = user[4]
             return render_template("home.html")
         except:
             return render_template("login.html")
