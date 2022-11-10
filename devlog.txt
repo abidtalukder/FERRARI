@@ -77,3 +77,8 @@ ravenT -- 2022-11-08 21:37
 --------------------------------------------------------------
 Updated wiki design doc versions, drafted up database columns and methods for searching/filtering through database
 ==============================================================
+
+ravenT -- 2022-11-10 06:45
+--------------------------------------------------------------
+Uploaded working version of app and templates, restructured repo by deleting incorrectly named design wiki docs, filled in launch codes section of readme, updated requirements.txt
+==============================================================
