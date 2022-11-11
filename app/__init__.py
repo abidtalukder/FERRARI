@@ -35,6 +35,14 @@ def add_user(username, email, password, phone):
 
 @app.route("/") # At the root, we just return the homepage
 def index():
+    return render_template("index.html")
+    
+@app.route("/signupPage",methods=['GET', 'POST'])
+def signupPage():
+    return render_template("signup.html")
+    
+@app.route("/loginPage",methods=['GET', 'POST'])
+def loginPage():
     return render_template("login.html")
     
 @app.route("/signup",methods=['GET', 'POST'])
