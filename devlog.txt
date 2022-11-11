@@ -1,11 +1,57 @@
-abidT, craigC, ravenT -- 2022-10-30 21:06
+FERRARI
+Abid Talukder
+Craig Chen
+Raven (Ruiwen) Tang
+pd 2
+---------------------
+weB LOG (insert description)
+
+
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+abidT -- 2022-10-30 21:06
+--------------------------------------------------------------
 Initialized files in repo, created and uploaded team flag, created and uploaded design doc for option two, edited wiki design doc for python/specificity/acronym clarification 
+==============================================================
 
-abidT, craigC, ravenT -- 2022-11-01 9:26
+craigC -- 2022-10-30 21:06
+--------------------------------------------------------------
+Initialized files in repo, created and uploaded team flag, created and uploaded design doc for option two, edited wiki design doc for python/specificity/acronym clarification 
+==============================================================
+
+ravenT -- 2022-10-30 21:06
+--------------------------------------------------------------
+Initialized files in repo, created and uploaded team flag, created and uploaded design doc for option two, edited wiki design doc for python/specificity/acronym clarification 
+==============================================================
+
+abidT -- 2022-11-01 9:26
+--------------------------------------------------------------
 Updated design doc with target ship date
+==============================================================
 
-abidT, craigC, ravenT -- 2022-11-02 23:51
+craigC -- 2022-11-01 9:26
+--------------------------------------------------------------
+Updated design doc with target ship date
+==============================================================
+
+ravenT -- 2022-11-01 9:26
+--------------------------------------------------------------
+Updated design doc with target ship date
+==============================================================
+
+abidT -- 2022-11-02 23:51
+--------------------------------------------------------------
 Revised design doc, with clarifications about blog vs. entry, account registration and handling differentiation, and password inclusion in user information, adding tasks like project management & devlog to our breakdown, updated readme heading
+<<<<<<< HEAD
 
 abidT-- 2022-11-09 22:38
 Worked on authentication methods. There are still many bugs to fix. The foundation has been set.
@@ -19,3 +65,36 @@ abidT-- 2022-11-10 12:33
 Created templates for adding new blogs. Updated python methods to create new blogs.
 
 
+=======
+==============================================================
+
+craigC -- 2022-11-02 23:51
+--------------------------------------------------------------
+Revised design doc, with clarifications about blog vs. entry, account registration and handling differentiation, and password inclusion in user information, adding tasks like project management & devlog to our breakdown, updated readme heading
+==============================================================
+
+ravenT -- 2022-11-02 23:51
+--------------------------------------------------------------
+Revised design doc, with clarifications about blog vs. entry, account registration and handling differentiation, and password inclusion in user information, adding tasks like project management & devlog to our breakdown, updated readme heading
+==============================================================
+
+abidT -- 2022-11-08 21:37
+--------------------------------------------------------------
+Set up login/account functionality, using K19
+==============================================================
+
+craigC -- 2022-11-08 21:37
+--------------------------------------------------------------
+Compiled sample blog entries, sample categories
+==============================================================
+
+ravenT -- 2022-11-08 21:37
+--------------------------------------------------------------
+Updated wiki design doc versions, drafted up database columns and methods for searching/filtering through database
+==============================================================
+
+ravenT -- 2022-11-10 06:45
+--------------------------------------------------------------
+Uploaded working version of app and templates, restructured repo by deleting incorrectly named design wiki docs, filled in launch codes section of readme, updated requirements.txt
+==============================================================
+>>>>>>> refs/remotes/origin/main

@@ -6,6 +6,7 @@
 
 ## Launch codes:
 * How to clone/install.
-  * Coming soon...
+  * ```$ git clone git@github.com:abidtalukder/FERRARI.git```
 * How to run.
-  * Coming soon...
+  * ```$ cd app```
+  * ```$ python3 __init__.py```
