@@ -7,5 +7,15 @@ Updated design doc with target ship date
 abidT, craigC, ravenT -- 2022-11-02 23:51
 Revised design doc, with clarifications about blog vs. entry, account registration and handling differentiation, and password inclusion in user information, adding tasks like project management & devlog to our breakdown, updated readme heading
 
-abidT-- 2022-11-02 22:38
+abidT-- 2022-11-09 22:38
 Worked on authentication methods. There are still many bugs to fix. The foundation has been set.
+
+abidT-- 2022-11-10 13:40
+Fixed errors in sign up method. It turns out that if the userid has 
+special characters in it, then SQL3 can give errors as it rejects those 
+characters in text.
+
+abidT-- 2022-11-10 12:33
+Created templates for adding new blogs. Updated python methods to create new blogs.
+
+
