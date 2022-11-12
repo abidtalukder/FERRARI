@@ -90,7 +90,7 @@ Uploaded working version of app and templates, restructured repo by deleting inc
 
 craigC -- 2022-11-10 9:26
 --------------------------------------------------------------
-
+Compiled sample blog entries, sample categories
 ==============================================================
 
 abidT-- 2022-11-10 13:40
@@ -103,4 +103,7 @@ abidT-- 2022-11-10 12:33
 Created templates for adding new blogs. Updated python methods to create new blogs.
 ==============================================================
 
-
+craigC -- 2022-11-11 9:56
+--------------------------------------------------------------
+Compiled sample blog entries, sample categories
+==============================================================
