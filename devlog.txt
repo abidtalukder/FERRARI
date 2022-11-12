@@ -93,6 +93,11 @@ craigC -- 2022-11-10 9:26
 Compiled sample blog entries, sample categories
 ==============================================================
 
+ravenT -- 2022-11-10 9:26
+--------------------------------------------------------------
+Database troubleshooting for log-in/user functionality
+==============================================================
+
 abidT-- 2022-11-10 13:40
 --------------------------------------------------------------
 Fixed errors in sign up method. It turns out that if the userid has special characters in it, then SQL3 can give errors as it rejects those  characters in text.
@@ -103,7 +108,12 @@ abidT-- 2022-11-10 12:33
 Created templates for adding new blogs. Updated python methods to create new blogs.
 ==============================================================
 
-craigC -- 2022-11-11 9:56
+craigC -- 2022-11-11 21:56
 --------------------------------------------------------------
 Compiled sample blog entries, sample categories
+==============================================================
+
+ravenT -- 2022-11-11 22:58
+--------------------------------------------------------------
+Fixed typos in HTML files, changed form input attributes to placeholders, created methods to update and parse genre information strings (for database). Will begin working on changing form inputs for genres to checkbox type and linking parsing methods to form inputs.
 ==============================================================
