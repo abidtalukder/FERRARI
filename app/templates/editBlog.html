@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{blog[3]}}</title>
+</head>
+<body>
+    
+    <form action = "/saveEdit" method = "POST">
+        <input type="hidden" name="blogId" value="{{blog[1]}}">
+        <input type="text" value="{{blog[3]}}" name="title">
+        <input type="text" value="Enter Genres" name="genre">
+        <br>
+        <textarea name="content" rows="10" cols="60">{{blog[4]}}</textarea>
+        <br>
+        <input type="submit" name="sub1">
+    </form>
+    
+</body>
+</html>
