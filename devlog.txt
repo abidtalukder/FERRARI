@@ -117,3 +117,8 @@ ravenT -- 2022-11-11 22:58
 --------------------------------------------------------------
 Fixed typos in HTML files, changed form input attributes to placeholders, created methods to update and parse genre information strings (for database). Will begin working on changing form inputs for genres to checkbox type and linking parsing methods to form inputs.
 ==============================================================
+
+ravenT -- 2022-11-11 23:55
+--------------------------------------------------------------
+Fixed typos in HTML files and blank files, changed form input attributes to placeholders in new HTML files, resolved some version/merge conflicts.
+==============================================================
