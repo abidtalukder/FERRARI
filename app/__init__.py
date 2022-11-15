@@ -255,7 +255,7 @@ def saveEdit():
         creation_time = str(datetime.datetime.now())
         
         insert_blogs = f"  blogs SET title='{title}', content='{content}' WHERE articleid LIKE '{blogid}';"
-        db.execute(insert_blogs)
+        db.execute("UPDATE blogs SET title=?, content=? WHERE articleid LIKE ?", (title,content,blogid))
     
     file.commit()
         
