@@ -118,7 +118,17 @@ ravenT -- 2022-11-11 22:58
 Fixed typos in HTML files, changed form input attributes to placeholders, created methods to update and parse genre information strings (for database). Will begin working on changing form inputs for genres to checkbox type and linking parsing methods to form inputs.
 ==============================================================
 
-ravenT -- 2022-11-11 23:55
+abidT -- 2022-11-15 02:00
 --------------------------------------------------------------
-Fixed typos in HTML files and blank files, changed form input attributes to placeholders in new HTML files, resolved some version/merge conflicts.
+Wrapped up functionalities for filtering, editing, styling, creating new entries, deleting entries, viewing blogs of other users. Troubleshooting with cookies.
+==============================================================
+
+craigC -- 2022-11-15 03:22
+--------------------------------------------------------------
+Updating README descriptions. Changing design doc to updates and changes for final version. Uploading sample entries compiled previously and categorizing under genres.
+==============================================================
+
+ravenT -- 2022-11-15 03:30
+--------------------------------------------------------------
+Moved directories to correct places. Troubleshooting with cookies. Genre parsing functions (updating, changing, creating). Renaming CSS folders. Updating design doc. Database testing and account creation.  
 ==============================================================
