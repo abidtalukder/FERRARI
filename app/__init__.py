@@ -15,6 +15,7 @@ import string
 
 app = Flask(__name__)
 app.secret_key = os.urandom(16)
+dblogs = ""
 
 
 def get_random_string():
@@ -22,7 +23,70 @@ def get_random_string():
     # With combination of lower and upper case
     result_str = ''.join(random.choice(string.ascii_letters) for i in range(length))
     # print random string
-    return result_str
+    return result_str    
+
+def create_genre_string(login_answer):
+    if("adventure" in login_answer.lower()):
+        return "1,0,0,0,0"
+    if("humor" in login_answer.lower()):
+        return "0,1,0,0,0"
+    if("network" in login_answer.lower()):
+        return "0,0,1,0,0"
+
+    if("scary" in login_answer.lower()):
+        return "0,0,0,1,0"
+
+    return "0,0,0,0,1"
+
+
+def update_genre_string(genre, genre_str):
+     genre_split = genre_str.split(",")
+     if("Adventure".lower() in genre.lower()):
+         genre_split[0] = int(genre_split[0]) + 1
+     
+     elif("humor".lower() in genre.lower() ):
+         genre_split[1] = int(genre_split[1]) + 1
+     
+     elif("Network".lower() in genre.lower()):
+         genre_split[2] = int(genre_split[2]) + 1
+     
+     elif("Scary".lower() in genre.lower()):
+         genre_split[3] = int(genre_split[3]) + 1
+     
+     else:
+         genre_split[4] = int(genre_split[4]) + 1
+     
+     return str(genre_split[0]) + "," + str(genre_split[1]) + "," + str(genre_split[2]) + "," + str(genre_split[3]) + "," + str(genre_split[4])
+
+    
+def parse_genre_string(genre_str):
+     genre_split = genre_str.split(",")
+     # adventure (0), humor (1), network (2), scary (3), science (4)
+     curr_max = 0
+     for i in range(5):
+         genre_split[i] = int(genre_split[i])
+         if(genre_split[i] > genre_split[curr_max]):
+             curr_max = i
+         
+     
+     if curr_max == 0:
+        return "Adventure"
+     elif curr_max == 1:
+        return "Humor"
+     elif curr_max == 2:
+        return "Network"
+     elif curr_max == 3:
+        return "Scary"
+     else:
+        return "Science"
+
+def get_blogs():
+    # most_liked = parse_genre_string(session["genres"])
+    # filter_command = f"SELECT * from blogs where genre like '{most_liked}'"
+    # db.execute(filter_command)
+    db.execute(f"SELECT * from blogs where userid not like '{session['userid']}'")
+    dblogs = db.fetchall()
+    return dblogs
 
 DB_FILE="database.db"
 file = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
@@ -38,13 +102,19 @@ def update_articles():
     db.execute(filter_articles)
     blog_list = db.fetchall()
     session["blog_list"] = blog_list
+    return blog_list
 
-@app.route("/") # At the root, we just return the homepage
+@app.route("/",methods=['GET', 'POST']) # At the root, we just return the homepage
 def index():
     try:
-        return render_template("profile.html", user=session['username'], blogs=session["blog_list"])
+        session['username']
+        return render_template("home.html", user=session["username"], blogs = get_blogs())
     except:
         return render_template("index.html")
+        
+@app.route("/profile",methods=['GET', 'POST'])
+def profile():
+    return render_template("profile.html", user=session['username'], blogs=update_articles())
     
 @app.route("/signupPage",methods=['GET', 'POST'])
 def signupPage():
@@ -61,12 +131,24 @@ def signup():
         # db.execute(create_table)
         
         key = get_random_string()
+        
+        has_key = False
+        
+        # while True:
+        #     try:
+        #         db.execute(f"select * from users where id like '{key}';")
+        #         key = get_random_string()
+        #     except:
+        #         break
+            
+        
         username = str(request.form.get('username'))
         email = str(request.form.get('email'))
         password = str(request.form.get('password'))
         phone = str(request.form.get('phone'))
+        g = create_genre_string(str(request.form.get('genres')))
         
-        command = f"insert into users values('{username}','{email}','{password}','{phone}','{key}');"
+        command = f"insert into users values('{username}','{email}','{password}','{phone}','{key}', '{g}');"
         db.execute(command)
         
     file.commit()
@@ -81,7 +163,7 @@ def signup():
     # db.execute("SELECT * FROM users;")
     # print(db.fetchall())
     
-    return render_template("home.html")
+    return render_template("home.html", user=session["username"], blogs = get_blogs())
 
 @app.route("/auth",methods=['GET', 'POST'])
 def login():
@@ -99,6 +181,8 @@ def login():
             session["email"]=user[0][1]
             session["phone"]=user[0][3]
             session["userid"] = user[0][4]
+            session["genres"] = user[0][5]
+           
             
             update_articles()
             
@@ -112,7 +196,7 @@ def login():
             #     '''
             #     html_blog_display.append(a)
         
-            return render_template("profile.html", user=session['username'], blogs=session["blog_list"])
+            return render_template("home.html", user=session["username"], blogs = get_blogs())
         except:
             return render_template('login.html')
             
@@ -123,7 +207,8 @@ def logout():
     session.pop('email', None)
     session.pop('phone', None)
     session.pop('userid', None)
-    return render_template("login.html")
+    session.pop("genres", None)
+    return render_template("index.html")
 
 # COMPLETING AUTHENTICATION METHODS
  
@@ -169,17 +254,37 @@ def saveEdit():
         blogid = request.form.get('blogId')
         creation_time = str(datetime.datetime.now())
         
-        insert_blogs = f"UPDATE blogs SET title='{title}', content='{content}' WHERE articleid LIKE '{blogid}';"
+        insert_blogs = f"  blogs SET title='{title}', content='{content}' WHERE articleid LIKE '{blogid}';"
         db.execute(insert_blogs)
     
     file.commit()
-    update_articles()
         
-    return render_template("profile.html", user=session['username'], blogs=session['blog_list'])
+    return render_template("profile.html", user=session['username'], blogs=update_articles())
         
-        
+@app.route('/deleteEntry', methods=['GET', 'POST'])      
+def deleteEntry():
+    try:
+        command = f"DELETE FROM blogs where articleid LIKE '{request.form.get('blogId')}'"
+        db.execute(command)
+        file.commit()
+    except: 
+        None
+    return render_template("profile.html", user=session['username'], blogs=update_articles())
     
-       
+    
+### RECOMMENDATIONS ###
+@app.route('/likeGenre', methods=['GET', 'POST'])
+def likeGenre():
+    
+    return render_template("404.html")
+    
+@app.route('/displayBlogs', methods=['GET', 'POST'])
+def displayBlogs():
+    get_blogs()
+    return render_template("home.html", user=session["username"], blogs = dblogs)
+    
+    
+    
     
     
             
@@ -194,3 +299,12 @@ if __name__ == "__main__": #false if this file imported as module
         
 
 
+
+
+'''
+0 - adventure
+1 - humor 
+2 - network
+3 - scary
+4 - science
+'''

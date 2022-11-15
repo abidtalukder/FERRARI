@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/stylesheets/format.css" rel="stylesheet">
+        <link href="../static/stylesheets/main.css" rel="stylesheet">
+        <title>Blog Inc.</title>
+      </head>
+<body>
+    <nav class="nav-top">
+        <div class="">
+            <form action = "/" method = "POST">
+                <input class="bloginc" type="submit" value="Blog Inc." name="sub1">
+            </form>
+        </div>
+        
+        <div class="nav-text-area">
+            
+            <form action = "/profile" method="POST" >
+                <input value="Profile" type="submit" style="border-width:2px; border-radius: 0.75rem; padding:0.75rem; background-color: rgb(19, 18, 18); color: white;" name="sub1">
+            </form>
+            <form action = "/logout" method="POST" >
+                <input value="Logout" type="submit" style="border-width:2px; border-radius: 0.75rem; padding:0.75rem; background-color: rgb(19, 18, 18); color: white;" name="sub1">
+            </form>
+            
+        </div>
+      </nav>
+</body>
+
+<main>
+    {% for item in blogs %}
+    
+    <div style="display: flex; justify-content:center; padding-top: 2.5rem; padding-bottom: 2.5rem;">
+        <div style="border-radius: 1rem; border-width: 2px; width: 60%; height:450px; background-color: rgb(250, 250, 250); overflow: scroll;">
+            <div style=" padding: 0.75rem; height: 27%;">
+                {{item[3]}}
+                <br>
+                {{user}}
+                <br>
+                {{item[2]}}
+                <br>
+                <div style="display: flex; gap: 0.7rem;">
+                    <form action = "/likeGenre" method="POST" class="flex gap-3" >
+                        <input type="hidden" name="blogGenre" value="{{item[2]}}">
+                        <input value="Like" type="submit" style="font-size: 0.9rem; border-width: 1px;  border-radius: 0.25rem; padding: 0.5rem; color:white; background-color: black;" name="sub1">
+                    </form>
+                </div>
+                
+            </div>
+            <hr>
+            <div style="font-size: 1.5rem; display: flex; justify-content: center; padding: 0.75rem; height:73%;">
+                {{item[4]}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+</main>
+</html>

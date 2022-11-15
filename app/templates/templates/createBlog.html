@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/stylesheets/format.css" rel="stylesheet">
+        <link href="../static/stylesheets/main.css" rel="stylesheet">
+        <title>Blog Inc.</title>
+      </head>
+<body style="background-color: white;">
+    <nav class="nav-top">
+        <div class="">
+            <form action = "/" method = "POST">
+                <input class="bloginc" type="submit" value="Blog Inc." name="sub1">
+            </form>
+        </div>
+        
+        <div class="nav-text-area">
+            
+            <form action = "/profile" method="POST" >
+                <input value="Profile" type="submit" style="border-width:2px; border-radius: 0.75rem; padding:0.75rem; background-color: rgb(19, 18, 18); color: white;" name="sub1">
+            </form>
+            <form action = "/logout" method="POST" >
+                <input value="Logout" type="submit" style="border-width:2px; border-radius: 0.75rem; padding:0.75rem; background-color: rgb(19, 18, 18); color: white;" name="sub1">
+            </form>
+            
+        </div>
+      </nav>
+</body>
+
+<main style="display: flex; justify-content:center;">
+    
+    <form action = "/saveBlog" method="POST" style="margin-top: 2.5rem;">
+        <div>
+            <input style="border-width: 1px; border-radius:0.75rem; padding: 0.75rem;  color: rgb(60, 70, 80);" type="text" placeholder="Title" name="title">
+            <input style="border-width: 1px; border-radius:0.75rem; padding: 0.75rem;  color: rgb(60, 70, 80);" type="text" placeholder="Genres" name="genre">
+        </div>
+        <div style="height: 10px;">
+            
+        </div>
+        
+        <textarea style="border-width: 1px; border-radius:0.75rem; padding: 0.75rem;  color: rgb(60, 70, 80);" name="content" rows="10" cols="60"></textarea>
+        <br>
+        <input style="border-width: 1px; border-radius:0.75rem; padding: 0.75rem; background-color: black; color:white;" type="submit" name="sub1">
+        
+    </form>
+    
+    
+    
+</main>
+</html>
