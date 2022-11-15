@@ -1,13 +1,146 @@
+<!doctype html>
 <html>
-    
-    Hello user. You can do blogs in this site
-    
-    <form action = "/signupPage" method = "POST">
-        <input type="submit" value="Sign Up" name="signup">
-    </form>
-    
-    <form action = "/loginPage" method = "POST">
-        <input type="submit" value="Log in" name="login">
-    </form>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../static/stylesheets/format.css" rel="stylesheet">
+  <link href="../static/stylesheets/main.css" rel="stylesheet">
+  <title>Blog Inc.</title>
+</head>
+<body style="background-color: white;">
+    <nav class="nav-top">
+        <div class="">
+            <form action = "/" method = "POST">
+                <input class="bloginc" type="submit" value="Blog Inc." name="sub1">
+            </form>
+        </div>
+        
+        <div class="nav-text-area">
+            
+            <form action = "/" method="POST" >
+                <input value="Profile" type="submit" style="border-width:2px; border-radius: 0.75rem; padding:0.75rem; background-color: rgb(19, 18, 18); color: white;" name="sub1">
+            </form>
+            <form action = "/search" method="POST" style="display: flex; gap:0.75rem;" >
+                <input type="text" style="border-width:2px; border-radius: 0.75rem; padding:0.75rem;" placeholder="Query">
+                <input type="submit" style="border-width: 1px; border-radius: 0.75rem; padding: 0.75rem; background-color: rgb(20, 20, 20); color: white;" name="sub1">
+            </form>
+            
+        </div>
+      </nav>
 
+  <!-- Holds intro to what the competition is. Headline -->
+  <main class="main-body">
+    <div style="grid-column: span 1 / span 1;">
+        <div style="font-size: 3.75rem; font-weight: 700; line-height: 4.75rem;"> 
+            Create, Inspire, Record, Share, Blog. The World Awaits.
+        </div>
+        <div style="margin-top: 2.5rem; font-size: 1.25rem; color: rgb(107 114 128);">
+            Use our feature-packed site to create blogs and follow your favorite creators.
+        </div>
+        
+        <div style="display: flex; gap:0.75rem; margin-top:1.25rem;">
+            
+            <form action = "/signupPage" method = "POST">
+                <input style="font-size: 1rem; color: white; background-color: black; padding: 1rem; border-radius: 0.75rem; border-width: 0.2rem; " type="submit" value="Sign Up" name="signup">
+            </form>
+            
+            <form action = "/loginPage" method = "POST">
+                <input style="font-size: 1rem; color: white; background-color: black; padding: 1rem; border-radius: 0.75rem; border-width: 0.2rem; " type="submit" value="Log in" name="login">
+            </form>
+            
+        </div>
+    </div>
+    <div class="col-span-1">
+        <img src="images/reshot-illustration-development-team-B9HDTVXC3W.svg" alt="">
+    </div>
+  </main>
+  
+  <!-- Main Body Holds the Different Sections -->
+  <main class="w-full">
+    
+    <!-- Get Involved -->
+    <div style="padding-top: 2.5rem; padding-bottom: 14.5rem; background-color: black;">
+        <div id="getInvolved" style="color:white; font-size: 3.75rem;font-weight: 700;text-align: center;  margin-bottom: 4rem;">
+            Get Involved
+        </div> 
+        
+        <div style="padding-bottom: 5rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));">
+            <div style="display: flex; justify-content: flex-end;" >
+                <div style="width: 300px; background-color: white; border-width: 2px; border-radius: 0.75rem; padding: 1.25rem;">
+                    <div style="border-radius: 0.75rem;">
+                        <img style="height: 100px; width:100px;" 
+                        src="../static/images/reshot-icon-write-review-53WJRP2BA8.svg" 
+                        alt="">
+                    </div>
+                    <div style="font-size: 1.5rem; padding-top: 0.5rem;font-weight: 700;" >
+                        Write Your Stories
+                    </div>
+                    
+                    <p style=" color: rgb(160 160 180); padding-bottom: 0.75rem; padding-top: 0.75rem;">
+                        Release Your Creative Ideas To Our Platform and Cater To Your Audience By Choosing The Genre That Applies.
+                    </p>
+                    
+                </div>
+                
+            </div>
+            
+            <div style="display: flex; justify-content: center;">
+                <div style="width: 300px; background-color: white; border-width: 2px; border-radius: 0.75rem; padding: 1.25rem;">
+                    <div style="border-radius: 0.75rem; ">
+                        <img style="height: 100px; width:100px;" 
+                        src="../static/images/reshot-icon-reading-online-5DC8G63KYM.svg" 
+                        alt="">
+                    </div>
+                    <div style="font-size: 1.5rem; padding-top: 0.5rem;font-weight: 700;">
+                        Learn From Others
+                    </div>
+                    
+                    <p style="color: rgb(160 160 180); padding-bottom: 0.75rem; padding-top: 0.75rem;">
+                        Our blog enables you to learn from other's experiences and apply them to your life.
+                    </p>
+                       
+                </div>
+                
+            </div>
+            
+            <div style="display: flex; justify-content: flex-start;">
+                <div style="width: 300px; background-color: white; border-width: 2px; border-radius: 0.75rem; padding: 1.25rem;">
+                    <div style="border-radius: 0.75rem;">
+                        <img style="height: 100px; width:100px;" 
+                        src="../static/images/reshot-icon-edit-B8KPVFJ9GE.svg" 
+                        alt="">
+                    </div>
+                    <div style="font-size: 1.5rem; padding-top: 0.5rem;font-weight: 700;">
+                        Edit Old Entries
+                    </div>
+                    
+                    <p style="color: rgb(160 160 180); padding-bottom: 0.75rem; padding-top: 0.75rem;">
+                        Change Your Mind? We Got You Covered. You Can Delete or Edit Old Entries.
+                    </p>
+                    
+                </div>
+                
+            </div>
+            
+            
+            
+           
+            
+        </div>
+        
+    </div>
+    <!-- Get Involved Ends Here -->
+        
+        <div style=" display: flex; justify-content: center; align-items: center; padding: 0.75rem;">
+            <p class="text-gray-400">
+                Ⓒ Blog Inc. 2022
+            </p>
+            
+        </div>
+        
+    </div>
+    
+  </main> 
+  
+</body>
 </html>
