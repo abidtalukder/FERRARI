@@ -10,9 +10,22 @@
     
     User: {{ user }}
     
-    <form action = "/updateBlogs" method = "POST">
+    <form action = "/createBlogs" method = "POST">
         <input type="submit" value="Create New Blog" name="sub1">
     </form>
+    
+    {% for item in blogs %}
+    
+    {{item[3]}}
+    <br>
+    {{item[4][:100]}}...
+    
+    <form action = "/editBlog" method = "POST">
+        <input type="hidden" name="blogId" value="{{item[1]}}">
+        <input type="submit" value="Edit Blog" name="xyz">
+    </form>
+        <br>
+    {% endfor %}
     
 </body>
 </html>

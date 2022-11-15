@@ -32,10 +32,19 @@ def add_user(username, email, password, phone):
     key = str(os.urandom(16))
     insert = f"insert into users values('{username}','{email}', '{password}', '{phone}', '{key}');"
     db.execute(insert)
+    
+def update_articles():
+    filter_articles = f"Select * from blogs where userid like '{session['userid']}'"
+    db.execute(filter_articles)
+    blog_list = db.fetchall()
+    session["blog_list"] = blog_list
 
 @app.route("/") # At the root, we just return the homepage
 def index():
-    return render_template("index.html")
+    try:
+        return render_template("profile.html", user=session['username'], blogs=session["blog_list"])
+    except:
+        return render_template("index.html")
     
 @app.route("/signupPage",methods=['GET', 'POST'])
 def signupPage():
@@ -90,8 +99,20 @@ def login():
             session["email"]=user[0][1]
             session["phone"]=user[0][3]
             session["userid"] = user[0][4]
+            
+            update_articles()
+            
+            # html_blog_display = []
+            # for blog in blog_list:
+            #     a = f'''
+            #     <form action = "/edit" method = "POST">
+            #         <input type="hidden" name="blogId" value="{blog[1]}">
+            #         <input type="submit" value="Edit Blog" name="xyz">
+            #     </form>
+            #     '''
+            #     html_blog_display.append(a)
         
-            return render_template("profile.html", user=session['username'])
+            return render_template("profile.html", user=session['username'], blogs=session["blog_list"])
         except:
             return render_template('login.html')
             
@@ -107,9 +128,9 @@ def logout():
 # COMPLETING AUTHENTICATION METHODS
  
 # STARTING ARTICLE CREATION METHODS
-@app.route('/updateBlogs', methods=['GET', 'POST'])
+@app.route('/createBlogs', methods=['GET', 'POST'])
 def updateBlogs():
-    return render_template("edit.html")
+    return render_template("createBlog.html")
     
 @app.route('/saveBlog',methods=['GET', 'POST'])
 def saveBlog():
@@ -125,8 +146,38 @@ def saveBlog():
         db.execute(insert_blogs)
     
     file.commit()
+    update_articles()
         
-    return render_template("profile.html")
+    return render_template("profile.html", user=session['username'], blogs=session['blog_list'])
+    
+@app.route('/editBlog', methods=['GET', 'POST'])
+def editBlog():
+    if request.method == 'POST':
+        blogId = request.form.get("blogId")
+        filter_articles = f"Select * from blogs where articleid like '{blogId}'"
+        db.execute(filter_articles)
+        blog_list = db.fetchall()[0]
+        
+        return render_template('editBlog.html', blog=blog_list)
+
+@app.route('/saveEdit', methods=['GET', 'POST'])
+def saveEdit():
+    if request.method == 'POST':
+        genres=request.form.get('genre')
+        title = request.form.get('title')
+        content = request.form.get('content')
+        blogid = request.form.get('blogId')
+        creation_time = str(datetime.datetime.now())
+        
+        insert_blogs = f"UPDATE blogs SET title='{title}', content='{content}' WHERE articleid LIKE '{blogid}';"
+        db.execute(insert_blogs)
+    
+    file.commit()
+    update_articles()
+        
+    return render_template("profile.html", user=session['username'], blogs=session['blog_list'])
+        
+        
     
        
     
